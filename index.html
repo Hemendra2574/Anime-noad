@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>anime no ad free</title>
+    <title>Anime World India Embed</title>
     <style>
         body {
             margin: 0;
@@ -11,14 +11,15 @@
             font-family: Arial, sans-serif;
             background-color: #000;
             color: #fff;
-            overflow: hidden; /* Prevents parent page scrolling */
+            overflow: hidden;
         }
         .container {
             max-width: 100%;
-            height: 100vh; /* Full viewport height for mobile */
+            height: 100vh;
             text-align: center;
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
         h1 {
             color: #ff6b6b;
@@ -27,14 +28,50 @@
         }
         p {
             font-size: 1em;
-            margin: 5px 0 10px;
+            margin: 5px 0;
         }
-        iframe {
+        .access-input {
+            margin: 10px auto;
+            padding: 8px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .check-button, .get-access-link, .back-link {
+            color: #fff;
+            background: #ff6b6b;
+            padding: 8px 15px;
+            text-decoration: none;
+            font-size: 1em;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .get-access-link {
+            background: #00ff88;
+        }
+        .warning {
+            color: #ff4444;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        #content-frame {
+            display: none; /* Hidden until code is verified */
             width: 100%;
-            height: calc(100vh - 100px); /* Adjusts for header/footer */
+            height: calc(100vh - 120px); /* Adjusted for simpler interface */
             border: none;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+        }
+        .fallback {
+            display: none; /* Shown if iframe fails or code is wrong */
+            color: #ff4444;
+            margin: 10px 0;
+        }
+        #access-section {
+            display: block; /* Shown initially, hidden after correct code */
         }
         footer {
             font-size: 0.8em;
@@ -45,31 +82,50 @@
             color: #ff6b6b;
             text-decoration: none;
         }
-        .back-link {
-            display: block;
-            color: #ff6b6b;
-            text-decoration: none;
-            font-size: 1em;
-            margin: 5px auto;
-        }
         @media (max-width: 768px) {
-            iframe { height: calc(100vh - 120px); } /* Adjust for smaller screens */
+            #content-frame { height: calc(100vh - 150px); }
             h1 { font-size: 1.2em; }
-            p, footer { font-size: 0.75em; }
+            p, .access-input, .check-button, .get-access-link, .back-link, footer { font-size: 0.75em; }
+            .access-input { width: 150px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>anime ad blocker by yoboy108</h1>
+        <h1>Anime World India</h1>
         <p>Best Source for Hindi, Tamil, Telugu Anime & Cartoons</p>
+        <div id="access-section">
+            <p class="warning">Enter the correct access code and click Check to view content!</p>
+            <input type="text" id="access-code" class="access-input" placeholder="Enter Access Code" aria-label="Access Code Input">
+            <button onclick="checkCode()" class="check-button">Check Access Code</button>
+            <a href="https://earnlinks.in/AFG6e" class="get-access-link" target="_blank">Get Access Code</a>
+        </div>
         <a href="https://watchanimeworld.in" class="back-link">Go Back to Homepage</a>
-        <iframe src="https://watchanimeworld.in" 
+        <iframe id="content-frame" src="https://watchanimeworld.in" 
                 allowfullscreen 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        <p class="fallback">Incorrect code or iframe blocked? <a href="https://watchanimeworld.in" target="_blank">Visit Anime World India directly</a>.</p>
         <footer>
             <p>&copy; Content provided by <a href="https://watchanimeworld.in" target="_blank">Anime World India</a>. All rights reserved. This embed is for display purposes only.</p>
         </footer>
     </div>
+    <script>
+        function checkCode() {
+            const code = document.getElementById('access-code').value.trim();
+            const frame = document.getElementById('content-frame');
+            const fallback = document.querySelector('.fallback');
+            const accessSection = document.getElementById('access-section');
+            if (code === '6789') {
+                frame.style.display = 'block';
+                fallback.style.display = 'none';
+                accessSection.style.display = 'none'; /* Hide access code elements */
+            } else {
+                frame.style.display = 'none';
+                fallback.style.display = 'block';
+                accessSection.style.display = 'block';
+                alert('Incorrect access code. Please get the correct code from the link.');
+            }
+        }
+    </script>
 </body>
 </html>
